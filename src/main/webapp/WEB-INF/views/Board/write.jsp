@@ -11,17 +11,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<div class="container" style="text-align : center">
+		<div class="row">
+			<div class="col">
 	
-	<h1>글 작성</h1>
+				<h3>글 작성</h3>
 	
-	<c:url value="/Board/write" var="writeLink" />
+				<c:url value="/Board/write" var="writeLink" />
 	
-	<form action="${writeLink }" method="post">
-		제목 : <input type="text" name="title" value="새 제목" /> <br />
-		본문 : <textarea name="body" id="" cols="30" rows="10">새 글</textarea> <br />
+				<form action="${writeLink }" method="post">
+				제목 : <input type="text" name="title" value="새 제목" /> <br />
+				본문 : <textarea name="body" id="" cols="30" rows="10">새 글</textarea> <br />
 		
-		<button>등록</button>
-	</form>
+				<button class="btn btn-primary">등록</button>
+				</form>
+				</div>
+			</div>
+		</div>
 	
 </body>
 </html>

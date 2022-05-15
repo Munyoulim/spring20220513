@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.choong.spr.domain.BoardDto;
 import com.choong.spr.mapper.BoardMapper;
@@ -34,6 +35,7 @@ public class BoardService {
 	}
 	
 	// delete
+	@Transactional
 	public boolean removeBoardById(int id) {
 		
 		// 댓글 지우기

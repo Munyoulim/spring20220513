@@ -15,14 +15,14 @@
 
 	<h1>${message }</h1>
 
-	<h1>${board.id }번 게시물</h1>
+	<h3>${board.id }번 게시물</h3>
 	
 	<form action="${appRoot }/Board/modify" method="post">
 	<input type="hidden" name="id" value="${board.id }" />
 	
-	제목 : <input type="text" value="${board.title }" name="title" /> <br />
+	제목 : <input type="text" value="${board.title }" name="title" size="20"> <br />
 	
-	본문 : <textarea cols="30" rows="10" name="body" >${board.body }</textarea> <br />
+	본문 : <textarea cols="40" rows="10" name="body" >${board.body }</textarea> <br />
 	
 	작성일시 : <input type="datetime-local" value="${board.inserted }" readonly /> <br />
 	
@@ -37,7 +37,7 @@
 	
 	<hr />
 	
-	<h1>댓글</h1>
+	<h3>댓글</h3>
 	
 	<c:url value="/Board/reply/add" var="replyAddLink" />
 	<form action="${replyAddLink }" method="post">

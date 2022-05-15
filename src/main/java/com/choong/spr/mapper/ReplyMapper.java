@@ -17,7 +17,8 @@ public interface ReplyMapper {
 	
 	// 댓글 수정하기
 	int updateReply(ReplyDto reply);
-
+	
+	// 댓글 삭
 	void deleteReplyByBoard(int boardId);
 	
 }

@@ -14,42 +14,51 @@
 </head>
 <body>
 
-	<c:url value="/Board/write" var="writeLink" />
+	<div class="container" style="text-align : center">
+		<div class="row">
+			<div class="col">
 
-	<h1><a href="${writeLink }">글 쓰기</a></h1>
+				<h2>글 목록</h2> 
+
+					<table class="table">
+						<thead>
+						<tr>
+							<th>id</th>
+							<th>title</th>
+							<th>inserted</th>
+						</tr>
+							</thead>
+							<tbody>
+							<c:forEach items="${boardList }" var="board">
+							<tr>
+								<td>${board.id }</td>
+							<td>
+					
+							<c:url value="/Board/${board.id }" var="link"></c:url>
+					
+							<a href="${link }">
+							${board.title }
+							</a>
+					
+							<c:if test="${board.numOfReply > 0 }">
+								[${board.numOfReply }]
+							</c:if>
+					
+							</td>
+							<td>${board.inserted }</td>
+						</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 	
-	<h1>글 목록</h1>
+				<c:url value="/Board/write" var="writeLink" />
 	
-	<table class="table">
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>title</th>
-				<th>inserted</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${boardList }" var="board">
-				<tr>
-					<td>${board.id }</td>
-					<td>
-					
-					<c:url value="/Board/${board.id }" var="link"></c:url>
-					
-					<a href="${link }">
-					${board.title }
-					</a>
-					
-					<c:if test="${board.numOfReply > 0 }">
-						[${board.numOfReply }]
-					</c:if>
-					
-					</td>
-					<td>${board.inserted }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+				<h3><a href="${writeLink }">글 쓰기</a></h3>
+	
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
 
