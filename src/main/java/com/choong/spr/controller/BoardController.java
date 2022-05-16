@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.zerock.domain.ex01.CustomerDto;
-import org.zerock.domain.ex01.PageInfoDto;
 
 import com.choong.spr.domain.BoardDto;
+import com.choong.spr.domain.PageInfoDto;
 import com.choong.spr.domain.ReplyDto;
 import com.choong.spr.service.BoardService;
 import com.choong.spr.service.ReplyService;
@@ -28,13 +27,6 @@ public class BoardController {
 	@Autowired
 	private ReplyService replyService;
 	
-	@GetMapping("/list")
-	public void listBoard(Model model) {
-		List<BoardDto> list = service.listBoard();
-		
-		model.addAttribute("boardList", list);
-	}
-	
 	// select 
 	@GetMapping("/{id}")
 	public String getBoard(@PathVariable("id")int id, Model model) {
@@ -43,7 +35,7 @@ public class BoardController {
 		
 		List<ReplyDto> replyList = replyService.listReplyByBoardId(id);
 		
-		model.addAttribute("board", dto);
+		model.addAttribute("board", dto); 
 		model.addAttribute("replyList", replyList);
 		
 		return "/Board/get";
@@ -75,6 +67,24 @@ public class BoardController {
 		service.addBoard(board);
 		
 		return "redirect:/Board/list";
+	}
+	
+	@GetMapping("/list") 
+	public void listBoardPage(@RequestParam(name="page", defaultValue="1")int page, Model model) {
+		int rowPerPage = 5;
+		
+		List<BoardDto> list = service.listBoardPage(page, rowPerPage);
+		int totalRecords = service.countBoards();
+		
+		int end = (totalRecords - 1) / rowPerPage + 1;
+		
+		PageInfoDto pageInfo = new PageInfoDto();
+		pageInfo.setCurrent(page);
+		pageInfo.setEnd(end);
+		
+		model.addAttribute("boardList", list);
+		model.addAttribute("pageInfo", pageInfo); 
+		
 	}
 	
 }

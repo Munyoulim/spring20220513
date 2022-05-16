@@ -4,6 +4,7 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -57,6 +58,12 @@
 				</table>
 			</div>
 		</div>
+	</div>
+	
+	<div class="mt-3">
+		
+		<my:PageNation path="list" /> 
+		
 	</div>
 	
 </body>

@@ -19,10 +19,6 @@ public class BoardService {
 	
 	@Autowired
 	private ReplyMapper replyMapper;
-
-	public List<BoardDto> listBoard() {
-		return mapper.selectBoard();
-	}
 	
 	// select
 	public BoardDto getBoard(int id) {
@@ -54,6 +50,16 @@ public class BoardService {
 		int cnt = mapper.insertBoard(board);
 		
 		return cnt == 1;
+	}
+
+	public List<BoardDto> listBoardPage(int page, int rowPerPage) {
+		int from = (page-1) * rowPerPage;
+		
+		return mapper.listBoardPage(from, rowPerPage); 
+	}
+
+	public int countBoards() {
+		return mapper.countBoards();
 	}
 
 }

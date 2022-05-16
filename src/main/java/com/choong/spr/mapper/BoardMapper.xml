@@ -5,7 +5,7 @@
 
 <mapper namespace="com.choong.spr.mapper.BoardMapper">
 
-  <select id="selectBoard" resultType="com.choong.spr.domain.BoardDto">
+  <select id="listBoardPage" resultType="com.choong.spr.domain.BoardDto">
   	SELECT b.id        id, 
   		   b.title     title, 
   		   b.inserted  inserted,
@@ -13,10 +13,18 @@
   	FROM Board b LEFT JOIN Reply r ON b.id = r.board_id
   	GROUP BY b.id
   	ORDER BY id DESC
+  	LIMIT #{from }, #{row }
   </select>
   
   <select id="getBoard" resultType="com.choong.spr.domain.BoardDto">
-  	SELECT id, title, body, inserted FROM Board WHERE id = #{id}
+  	SELECT b.id        id, 
+  		   b.title     title, 
+  		   b.body      body,
+  		   b.inserted  inserted,
+           COUNT(r.id) numOfReply 
+  	FROM Board b LEFT JOIN Reply r ON b.id = r.board_id 
+  	WHERE b.id = #{id}
+  	GROUP BY b.id
   </select>
   
   <update id="updateBoard">
@@ -29,11 +37,17 @@
   <delete id="deleteBoard">
   	DELETE FROM Board
     WHERE id = #{id}
-  </delete>
+  </delete> 
   
   <insert id="insertBoard" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
   	INSERT INTO Board (title, body, inserted)
   	VALUES (#{title}, #{body}, #{inserted})
   </insert>
+  
+  <select id="countBoards" resultType="int"> 
+  	SELECT 
+  	COUNT(id)
+  	FROM Board
+  </select>
 
 </mapper>

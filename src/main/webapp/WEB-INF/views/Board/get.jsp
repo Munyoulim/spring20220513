@@ -128,7 +128,7 @@
 					<c:forEach items="${replyList }" var="reply">
 						<li class="list-group-item">
 							<div id="replyDisplayContainer${reply.id }">
-								<div class="fw-bold"><i class="fa-solid fa-comment"></i> ${reply.inserted }</div>
+								<div class="fw-bold"><i class="fa-solid fa-comment"></i> ${reply.prettyInserted}</div>
 								${reply.content }
 								
 								<button class="reply-edit-toggle-button" id="replyEditToggleButton${reply.id }" data-reply-id="${reply.id }"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -142,7 +142,7 @@
 								<form action="${appRoot }/Board/reply/modify" method="post"> 
 									<div class="input-group">
 										<input type="hidden" name="boardId" value="${board.id }"/>
-										<input type="hidden" name="replyId" value="${reply.id }"/>
+										<input type="hidden" name="id" value="${reply.id }"/>
 										<input class="form-control" value="${reply.content }" type="text" name="content" required/>
 										<button class="btn btn-outline-secondary"><i class="fa-solid fa-comment-dots"></i></button>
 									</div>

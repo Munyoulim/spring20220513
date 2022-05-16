@@ -2,11 +2,11 @@ package com.choong.spr.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.choong.spr.domain.BoardDto;
 
 public interface BoardMapper {
-
-	List<BoardDto> selectBoard();
 
 	BoardDto getBoard(int id);
 
@@ -15,5 +15,9 @@ public interface BoardMapper {
 	int deleteBoard(int id);
 
 	int insertBoard(BoardDto board);
+
+	List<BoardDto> listBoardPage(@Param("from")int from, @Param("row")int rowPerPage);
+
+	int countBoards();
 
 }
