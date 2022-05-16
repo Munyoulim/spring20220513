@@ -4,6 +4,7 @@ public class PageInfoDto {
 	
 	private int current;
 	private int end;
+	private String keyword;
 	
 	public void setCurrent(int current) {
 		this.current = current;
@@ -30,3 +31,27 @@ public class PageInfoDto {
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
