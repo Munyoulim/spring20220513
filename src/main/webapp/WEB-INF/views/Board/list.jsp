@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,48 +15,46 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+	<my:navBar current="list" />
 
-	<div class="container" style="text-align : center">
+	<div class="container">
 		<div class="row">
 			<div class="col">
-
-				<h2>글 목록</h2> 
-
-					<table class="table">
-						<thead>
+				<h2>글 목록</h2>
+				
+				<table class="table">
+					<thead>
 						<tr>
-							<th>id</th>
-							<th>title</th>
-							<th>inserted</th>
+							<th><i class="fa-solid fa-hashtag"></i></th>
+							<th>제목</th>
+							<th><i class="fa-solid fa-calendar"></i></th>
 						</tr>
-							</thead>
-							<tbody>
-							<c:forEach items="${boardList }" var="board">
+					</thead>
+					<tbody>
+						<c:forEach items="${boardList }" var="board">
 							<tr>
 								<td>${board.id }</td>
-							<td>
-					
-							<c:url value="/Board/${board.id }" var="link"></c:url>
-					
-							<a href="${link }">
-							${board.title }
-							</a>
-					
-							<c:if test="${board.numOfReply > 0 }">
-								[${board.numOfReply }]
-							</c:if>
-					
-							</td>
-							<td>${board.inserted }</td>
-						</tr>
+								<td>
+													
+									<c:url value="/Board/${board.id }" var="getUrl" />
+									
+									<a href="${getUrl }">
+										${board.title }
+									</a>
+									
+									<c:if test="${board.numOfReply > 0 }">
+										<span>
+										<i class="fa-solid fa-comments"></i>
+										${board.numOfReply }
+									</span>
+									</c:if>
+								</td>
+								<td>${board.prettyInserted }</td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-	
-				<c:url value="/Board/write" var="writeLink" />
-	
-				<h3><a href="${writeLink }">글 쓰기</a></h3>
-	
 			</div>
 		</div>
 	</div>

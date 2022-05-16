@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,24 +12,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<div class="container" style="text-align : center">
-		<div class="row">
-			<div class="col">
-	
-				<h3>글 작성</h3>
-	
-				<c:url value="/Board/write" var="writeLink" />
-	
-				<form action="${writeLink }" method="post">
-				제목 : <input type="text" name="title" value="새 제목" /> <br />
-				본문 : <textarea name="body" id="" cols="30" rows="10">새 글</textarea> <br />
 		
-				<button class="btn btn-primary">등록</button>
+	<my:navBar current="write"></my:navBar>
+	<div class="container">
+		<div class="row">
+			<div class="col-6">
+			
+				<h2>글 작성</h2>
+				
+				<c:url value="/Board/write" var="writeLink" />
+				
+				<form action="${writeLink }" method="post">
+					<div>
+						<label class="form-label" for="input1">제목</label>
+						<input class="form-control" type="text" name="title" required id="input1" />
+					</div>
+					
+					<div>
+						<label class="form-label" for="textarea1">본문</label>
+						<textarea class="form-control" name="body" id="textarea1" cols="20" rows="10"></textarea>
+					</div>
+					
+					<button class="btn btn-primary">작성</button>
 				</form>
-				</div>
 			</div>
 		</div>
+	</div>
 	
 </body>
 </html>
