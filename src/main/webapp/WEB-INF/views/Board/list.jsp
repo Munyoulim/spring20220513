@@ -20,19 +20,36 @@
 		$(".search_area button").on("click", function(e) {
 			e.preventDefault();
 			let moveForm = $("#moveForm");
-			let val = $("input[name='keyword']").val();
-			let val1 = $("input[name='current']").val();
-			// console.log(val);
-			moveForm.find("input[name='keyword']").val(val);
-			moveForm.find("input[name='current']").val(val1);
+			let val1 = $("input[name='keyword']").val();
+			let val2 = $("input[name='current']").val();
+			moveForm.find("input[name='keyword']").val(val1);
+			moveForm.find("input[name='current']").val(val2);
 			moveForm.find("input[name='searchType']").val("title");
 			moveForm.submit();
-			// location.href = "${appRoot}/Board/list?current=${pageInfo.current}" +"&amount=${pageInfo.amount}" +"&searchType=${pageInfo.searchType}&keyword=${pageInfo.keyword}";
 		});
 	});
 
-	
 </script>
+
+<style>
+	
+	.search_area {
+		float : right;
+		margin-top : 30px;
+		margin-left : 260px;
+	}
+
+	.search_content {
+		height : 30px;
+		width : 250px;
+	}
+	
+	.search_button {
+		width : 100px;
+		height : 36px;
+	}
+	
+</style>
 
 <title>Insert title here</title>
 </head>
@@ -43,28 +60,28 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<div class="search_area">
-					<div class="search_area">
-						<input type="text" name="keyword" value="${pageInfo.keyword }"/>
-						<button>검색</button>
+				<div class="search_area" >
+					<div class="search_area" id="search_area">
+						<input type="text" name="keyword" value="${pageInfo.keyword }" id="search_content"/>
+						<button id="search_button">검색</button>
 					</div>
 				</div>
 			
 				<form id="moveForm" method="get">
 					<input type="hidden" name="current" value="${pageInfo.current }"/>
-					<input type="hidden" name="amount" value="${pageInfo.amount }"/>
 					<input type="hidden" name="keyword" value="${pageInfo.keyword }"/>
 					<input type="hidden" name="searchType" value="${pageInfo.searchType }"/>
 				</form>
 			
-				<h2>글 목록</h2>
+				<h2 style="margin-top: 20px;">글 목록</h2>
 				
 				<table class="table">
 					<thead>
 						<tr>
 							<th><i class="fa-solid fa-hashtag"></i></th>
 							<th>제목</th>
-							<th><i class="fa-solid fa-calendar"></i></th>
+							<%-- <th><i class="fa-solid fa-calendar"></i></th> --%>
+							<th>시간</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -81,7 +98,7 @@
 									
 									<c:if test="${board.numOfReply > 0 }">
 										<span>
-										<i class="fa-solid fa-comments"></i>
+										<i class="fa-solid fa-comment-dots"></i>
 										${board.numOfReply }
 									</span>
 									</c:if>

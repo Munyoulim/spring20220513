@@ -23,6 +23,9 @@
 				<c:url value="/Board/write" var="writeLink" />
 				
 				<form action="${writeLink }" method="post">
+				
+					<input type="hidden" name="id" value="${board.id }"/>
+					
 					<div>
 						<label class="form-label" for="input1">제목</label>
 						<input class="form-control" type="text" name="title" required id="input1" />

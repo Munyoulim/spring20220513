@@ -26,10 +26,9 @@
 				let form1 = $("#form1");
 				let actionAttr = "${appRoot}/Board/remove";
 				form1.attr("action", actionAttr);
-				
+
 				form1.submit();
 			}
-			 
 		});
 		
 		// reply-edit-toggle 버튼 클릭시 댓글 보여주는 div 숨기고,
@@ -64,15 +63,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>글 본문 
+				<h2>글 본문 
 					<button id="edit-button1" class="btn btn-secondary">
 						<i class="fa-solid fa-pen-to-square"></i>
 					</button>
-				</h1>
+				</h2>
 				
 				<form id="form1" action="${appRoot }/Board/modify" method="post">
 					<input type="hidden" name="id" value="${board.id }"/>
-					<input type="hidden" name="keyword" value="${pageInfo.keyword }"/>
 					
 					<div>
 						<label class="form-label" for="input1">제목</label>

@@ -20,7 +20,5 @@ public interface BoardMapper {
 								@Param("keyword")String keyword, @Param("searchType")String searchType);
 
 	int countBoards(@Param("keyword")String keyword, @Param("searchType")String searchType);
-	
-//	int getTotal(PageInfoDto info);
 
 }

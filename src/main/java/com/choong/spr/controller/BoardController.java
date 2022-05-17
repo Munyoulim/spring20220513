@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.choong.spr.domain.BoardDto;
 import com.choong.spr.domain.PageInfoDto;
@@ -74,19 +76,16 @@ public class BoardController {
 							  Model model, 
 							  String keyword, 
 							  String searchType) {
-		int rowPerPage = 5;
+		int rowPerPage = 10;
 		
 		List<BoardDto> list = service.listBoardPage(page, rowPerPage, keyword, searchType); 
 		int totalRecords = service.countBoards(keyword, searchType);
 		
 		int end = (totalRecords - 1) / rowPerPage + 1;
 		
-//		int total = service.getTotal(info);
-		
 		PageInfoDto pageInfo = new PageInfoDto();
 		pageInfo.setCurrent(page);
 		pageInfo.setEnd(end);
-		pageInfo.setAmount(totalRecords);
 		pageInfo.setKeyword(keyword);
 		
 		model.addAttribute("boardList", list);

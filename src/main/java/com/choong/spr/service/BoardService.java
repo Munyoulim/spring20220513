@@ -62,10 +62,6 @@ public class BoardService {
 		return mapper.countBoards(keyword, searchType);
 	}
 	
-//	public int getTotal(PageInfoDto info) { 
-//		return mapper.getTotal(info);
-//	}
-
 }
 
 
