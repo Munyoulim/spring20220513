@@ -13,6 +13,8 @@ public class BoardDto {
 	
 	private int numOfReply;
 	
+	
+	
 	public String getPrettyInserted() {
 		// 24시간 이내면 시간만
 		// 이전이면 년-월-일

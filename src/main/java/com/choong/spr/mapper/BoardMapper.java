@@ -16,8 +16,11 @@ public interface BoardMapper {
 
 	int insertBoard(BoardDto board);
 
-	List<BoardDto> listBoardPage(@Param("from")int from, @Param("row")int rowPerPage);
+	List<BoardDto> listBoardPage(@Param("from")int from, @Param("row")int rowPerPage, 
+								@Param("keyword")String keyword, @Param("searchType")String searchType);
 
-	int countBoards();
+	int countBoards(@Param("keyword")String keyword, @Param("searchType")String searchType);
+	
+//	int getTotal(PageInfoDto info);
 
 }

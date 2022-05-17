@@ -52,15 +52,19 @@ public class BoardService {
 		return cnt == 1;
 	}
 
-	public List<BoardDto> listBoardPage(int page, int rowPerPage) {
+	public List<BoardDto> listBoardPage(int page, int rowPerPage, String keyword, String searchType) {
 		int from = (page-1) * rowPerPage;
 		
-		return mapper.listBoardPage(from, rowPerPage); 
+		return mapper.listBoardPage(from, rowPerPage, keyword, searchType); 
 	}
 
-	public int countBoards() {
-		return mapper.countBoards();
+	public int countBoards(String keyword, String searchType) {
+		return mapper.countBoards(keyword, searchType);
 	}
+	
+//	public int getTotal(PageInfoDto info) { 
+//		return mapper.getTotal(info);
+//	}
 
 }
 

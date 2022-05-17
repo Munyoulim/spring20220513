@@ -72,6 +72,7 @@
 				
 				<form id="form1" action="${appRoot }/Board/modify" method="post">
 					<input type="hidden" name="id" value="${board.id }"/>
+					<input type="hidden" name="keyword" value="${pageInfo.keyword }"/>
 					
 					<div>
 						<label class="form-label" for="input1">제목</label>

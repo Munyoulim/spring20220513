@@ -13,15 +13,50 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+<script>
+
+	$(document).ready(function() {
+		$(".search_area button").on("click", function(e) {
+			e.preventDefault();
+			let moveForm = $("#moveForm");
+			let val = $("input[name='keyword']").val();
+			let val1 = $("input[name='current']").val();
+			// console.log(val);
+			moveForm.find("input[name='keyword']").val(val);
+			moveForm.find("input[name='current']").val(val1);
+			moveForm.find("input[name='searchType']").val("title");
+			moveForm.submit();
+			// location.href = "${appRoot}/Board/list?current=${pageInfo.current}" +"&amount=${pageInfo.amount}" +"&searchType=${pageInfo.searchType}&keyword=${pageInfo.keyword}";
+		});
+	});
+
+	
+</script>
+
 <title>Insert title here</title>
 </head>
-<body>
+<body> 
 	
 	<my:navBar current="list" />
-
+	
 	<div class="container">
 		<div class="row">
 			<div class="col">
+				<div class="search_area">
+					<div class="search_area">
+						<input type="text" name="keyword" value="${pageInfo.keyword }"/>
+						<button>검색</button>
+					</div>
+				</div>
+			
+				<form id="moveForm" method="get">
+					<input type="hidden" name="current" value="${pageInfo.current }"/>
+					<input type="hidden" name="amount" value="${pageInfo.amount }"/>
+					<input type="hidden" name="keyword" value="${pageInfo.keyword }"/>
+					<input type="hidden" name="searchType" value="${pageInfo.searchType }"/>
+				</form>
+			
 				<h2>글 목록</h2>
 				
 				<table class="table">

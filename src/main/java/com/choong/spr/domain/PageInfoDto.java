@@ -5,6 +5,33 @@ public class PageInfoDto {
 	private int current;
 	private int end;
 	private String keyword;
+	private int amount;
+	
+	public String getSearchTypeKeyword() {
+		if (searchType.equals("") || keyword.equals("")) {
+			return "";
+		} else {
+			return "&searchType=" + searchType + "&keyword=" + keyword;
+		}
+	}
+	
+	private String searchType;
+	
+	public String getSearchType() {
+		return searchType;
+	}
+	
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 	
 	public void setCurrent(int current) {
 		this.current = current;
@@ -29,6 +56,19 @@ public class PageInfoDto {
 	public int getEnd() {
 		return end;
 	}
+	
+	public String getKeyword() {
+		return keyword;
+	}
+	
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+//	@Override
+//	public String toString() {
+//		return "PageInfoDto [current=" + current + ", amount=" + amount + ", searchType=" + searchType + ", keyword=" + keyword +"]";
+//	}
 	
 }
 

@@ -70,17 +70,24 @@ public class BoardController {
 	}
 	
 	@GetMapping("/list") 
-	public void listBoardPage(@RequestParam(name="page", defaultValue="1")int page, Model model) {
+	public void listBoardPage(@RequestParam(name="page", defaultValue="1")int page, 
+							  Model model, 
+							  String keyword, 
+							  String searchType) {
 		int rowPerPage = 5;
 		
-		List<BoardDto> list = service.listBoardPage(page, rowPerPage);
-		int totalRecords = service.countBoards();
+		List<BoardDto> list = service.listBoardPage(page, rowPerPage, keyword, searchType); 
+		int totalRecords = service.countBoards(keyword, searchType);
 		
 		int end = (totalRecords - 1) / rowPerPage + 1;
+		
+//		int total = service.getTotal(info);
 		
 		PageInfoDto pageInfo = new PageInfoDto();
 		pageInfo.setCurrent(page);
 		pageInfo.setEnd(end);
+		pageInfo.setAmount(totalRecords);
+		pageInfo.setKeyword(keyword);
 		
 		model.addAttribute("boardList", list);
 		model.addAttribute("pageInfo", pageInfo); 
