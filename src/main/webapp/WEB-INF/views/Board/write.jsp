@@ -47,7 +47,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 			
-				<h2 class="text-center" style="margin-bottom:20px; margin-top:20px;">글 작성</h2>
+				<h2 class="text-center" style="margin-bottom:22px; margin-top:15px;">글 작성</h2>
 				
 				<c:url value="/Board/write" var="writeLink" />
 				
@@ -62,7 +62,7 @@
 							
 							<tr>
 								<td>본문</td>
-								<td><textarea class="form-control" name="body" id="textarea1" cols="20" rows="20"></textarea></td>
+								<td><textarea class="form-control" name="body" id="textarea1" cols="20" rows="18"></textarea></td>
 							</tr>
 							
 						</table>

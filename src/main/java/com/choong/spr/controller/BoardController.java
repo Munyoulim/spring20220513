@@ -76,7 +76,7 @@ public class BoardController {
 							  Model model, 
 							  String keyword, 
 							  String searchType) {
-		int rowPerPage = 13;
+		int rowPerPage = 11;
 		
 		List<BoardDto> list = service.listBoardPage(page, rowPerPage, keyword, searchType); 
 		int totalRecords = service.countBoards(keyword, searchType);
