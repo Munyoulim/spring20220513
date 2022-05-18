@@ -60,6 +60,7 @@
 <body>
 	
 	<my:navBar></my:navBar>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -92,10 +93,11 @@
 					<button id="modify-submit1" class="btn btn-primary d-none">수정</button>
 					<button id="delete-submit1" class="btn btn-danger d-none">삭제</button>
 				</form>
-					
+				
 			</div>
 		</div>
 	</div>
+	
 	
 	<%-- 댓글 추가 form --%>
 	<div class="container mt-3">
@@ -118,18 +120,15 @@
 		<div class="row">
 			<div class="col">
 				<h3>댓글 ${board.numOfReply } 개</h3>
-				<ul class="list-group">
+					<ul class="list-group">
 					<c:forEach items="${replyList }" var="reply">
 						<li class="list-group-item">
 							<div id="replyDisplayContainer${reply.id }">
-								<div class="fw-bold"><i class="fa-solid fa-comment"></i> ${reply.prettyInserted}</div>
-								${reply.content }
+								<div class="fw-bold"><i class="fa-solid fa-comment"></i> ${reply.prettyInserted}</div>${reply.content }
 								
 								<button class="reply-edit-toggle-button" id="replyEditToggleButton${reply.id }" data-reply-id="${reply.id }"><i class="fa-solid fa-pen-to-square"></i></button>
 								
-								<button class="reply-delete-button" data-reply-id="${reply.id }">
-									<i class="fa-solid fa-trash-can"></i>
-								</button>
+								<button class="reply-delete-button" data-reply-id="${reply.id }"><i class="fa-solid fa-trash-can"></i></button>
 							</div>
 							
 							<div id="replyEditFormContainer${reply.id }" style="display:none;">

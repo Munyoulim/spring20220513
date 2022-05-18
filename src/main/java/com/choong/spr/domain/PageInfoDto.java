@@ -25,11 +25,11 @@ public class PageInfoDto {
 	}
 	
 	public int getLeft() {
-		return Math.max(current - 3, 1);
+		return Math.max(current - 10, 1);
 	}
 	
 	public int getRight() {
-		return Math.min(current + 3, end);
+		return Math.min(current + 10, end);
 	}
 	
 	public void setEnd(int end) {

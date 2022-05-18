@@ -49,6 +49,10 @@
 		height : 36px;
 	}
 	
+	.mt-3 {
+		border-radius : 5px;
+	}
+	
 </style>
 
 <title>Insert title here</title>
@@ -75,7 +79,7 @@
 			
 				<h2 style="margin-top: 20px;">글 목록</h2>
 				
-				<table class="table">
+				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th><i class="fa-solid fa-hashtag"></i></th>
@@ -88,8 +92,8 @@
 						<c:forEach items="${boardList }" var="board">
 							<tr>
 								<td>${board.id }</td>
-								<td>
-													
+								
+								<td>				
 									<c:url value="/Board/${board.id }" var="getUrl" />
 									
 									<a href="${getUrl }">
@@ -98,11 +102,12 @@
 									
 									<c:if test="${board.numOfReply > 0 }">
 										<span>
-										<i class="fa-solid fa-comment-dots"></i>
-										${board.numOfReply }
-									</span>
+											<i class="fa-solid fa-comment-dots"></i>
+											${board.numOfReply }
+										</span>
 									</c:if>
 								</td>
+								
 								<td>${board.prettyInserted }</td>
 							</tr>
 						</c:forEach>

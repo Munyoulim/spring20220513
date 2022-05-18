@@ -13,13 +13,11 @@ public class BoardDto {
 	
 	private int numOfReply;
 	
-	
-	
 	public String getPrettyInserted() {
-		// 24시간 이내면 시간만
+		// 12시간 이내면 시간만
 		// 이전이면 년-월-일
 		LocalDateTime now = LocalDateTime.now();
-		if (now.minusHours(24).isBefore(inserted)) {
+		if (now.minusHours(12).isBefore(inserted)) {
 			return inserted.toLocalTime().toString();
 		} else {
 			return inserted.toLocalDate().toString();
