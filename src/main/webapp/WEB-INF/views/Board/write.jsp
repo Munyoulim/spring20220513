@@ -10,16 +10,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
 
-<style>
-
-	.button {
-		 background-color: white;
- 		 color: black;
- 		 border: 2px solid #555555;
-	}
-	
-</style>
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -57,7 +47,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 			
-				<h2 class="text-center">글 작성</h2>
+				<h2 class="text-center" style="margin-bottom:20px; margin-top:20px;">글 작성</h2>
 				
 				<c:url value="/Board/write" var="writeLink" />
 				
@@ -66,22 +56,23 @@
 						<table class="table table-striped">
 					
 							<tr>
-							<td>제목</td>
-							<td><input class="form-control" type="text" name="title" required id="input1" /></td>
+								<td>제목</td>
+								<td><input class="form-control" type="text" name="title" required id="input1" /></td>
 							</tr>
 							
 							<tr>
-							<td>본문</td>
-							<td><textarea class="form-control" name="body" id="textarea1" cols="20" rows="20"></textarea></td>
+								<td>본문</td>
+								<td><textarea class="form-control" name="body" id="textarea1" cols="20" rows="20"></textarea></td>
 							</tr>
 							
 						</table>
+						
+					</div>
+			
+					<div style="text-align : center;">
+						<button type="submit" class="btn btn-outline-secondary" id="button">작성</button>
 					</div>
 					
-						
-							<button type="button" class="btn btn-secondary">작성</button>
-					
-						
 				</form>
 			</div>
 		</div>

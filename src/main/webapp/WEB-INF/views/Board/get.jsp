@@ -64,11 +64,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2>글 본문 
+				<h3>글 본문 
 					<button id="edit-button1" class="btn btn-secondary">
 						<i class="fa-solid fa-pen-to-square"></i>
 					</button>
-				</h2>
+				</h3>
 				
 				<form id="form1" action="${appRoot }/Board/modify" method="post">
 					<input type="hidden" name="id" value="${board.id }"/>

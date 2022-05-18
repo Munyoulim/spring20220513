@@ -66,8 +66,8 @@
 			<div class="col">
 				<div class="search_area" >
 					<div class="search_area" id="search_area">
-						<input type="text" name="keyword" value="${pageInfo.keyword }" id="search_content"/>
-						<button id="search_button">검색</button>
+						<input style="solid 2px #D2691E; border-radius : 8px" type="text" name="keyword" value="${pageInfo.keyword }" id="search_content"/>
+						<button id="search_button" class="btn btn-outline-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
 					</div>
 				</div>
 			
@@ -79,7 +79,7 @@
 			
 				<h2 style="margin-top: 20px;">글 목록</h2>
 				
-				<table class="table table-striped">
+				<table class="table">
 					<thead>
 						<tr>
 							<th><i class="fa-solid fa-hashtag"></i></th>
