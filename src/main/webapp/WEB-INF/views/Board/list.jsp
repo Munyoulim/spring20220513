@@ -84,7 +84,6 @@
 						<tr>
 							<th><i class="fa-solid fa-hashtag"></i></th>
 							<th>제목</th>
-							<%-- <th><i class="fa-solid fa-calendar"></i></th> --%>
 							<th>시간</th>
 						</tr>
 					</thead>
@@ -106,6 +105,7 @@
 											${board.numOfReply }
 										</span>
 									</c:if>
+									
 								</td>
 								
 								<td>${board.prettyInserted }</td>

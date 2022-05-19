@@ -16,33 +16,6 @@
 		
 	<my:navBar current="write"></my:navBar>
 	
-	<%-- 
-	<div class="container">
-		<div class="row">
-			<div class="col-6">
-			
-				<h2>글 작성</h2>
-				
-				<c:url value="/Board/write" var="writeLink" />
-				
-				<form action="${writeLink }" method="post">
-					
-					<div>
-						<label class="form-label" for="input1">제목</label>
-						<input class="form-control" type="text" name="title" required id="input1" />
-					</div>
-					
-					<div>
-						<label class="form-label" for="textarea1">본문</label>
-						<textarea class="form-control" name="body" id="textarea1" cols="20" rows="10"></textarea>
-					</div>
-					
-					<button class="btn btn-primary">작성</button>
-				</form>
-			</div>
-		</div>
-	</div> --%>
-	
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
@@ -62,11 +35,9 @@
 							
 							<tr>
 								<td>본문</td>
-								<td><textarea class="form-control" name="body" id="textarea1" cols="20" rows="18"></textarea></td>
+								<td><textarea class="form-control" name="body" id="textarea1" cols="20" rows="20"></textarea></td>
 							</tr>
-							
 						</table>
-						
 					</div>
 			
 					<div style="text-align : center;">

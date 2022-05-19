@@ -115,7 +115,6 @@
 	</div>
 	
 	<%-- 댓글 목록 --%>
-	
 	<div class="container mt-3">
 		<div class="row">
 			<div class="col">
