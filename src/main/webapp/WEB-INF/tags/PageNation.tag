@@ -40,11 +40,15 @@
 				<c:param name="searchType" value="${param.searchType }"></c:param>
 				<c:param name="keyword" value="${param.keyword }"></c:param>
 			</c:url>
+			
+			<c:if test="${pageInfo.current != pageInfo.end }">
 		
 		<li class="page-item">
       		<a class="page-link" href="${link }" aria-label="Next">
         		<span aria-hidden="true">&raquo;</span>
       		</a>
     	</li>
+    	
+    		</c:if>
 	</ul>
 </nav>
